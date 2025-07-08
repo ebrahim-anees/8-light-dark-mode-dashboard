@@ -1,0 +1,121 @@
+@use "util" as *;
+
+.card {
+  background: var(--card);
+  color: var(--text1);
+  text-align: center;
+  padding: toRem(25);
+  border-radius: toRem(5);
+  position: relative;
+  cursor: pointer;
+  transition: background 0.4s ease-in-out;
+  &:hover {
+    background: var(--card-hover);
+  }
+  &--facebook {
+    border-top: toRem(4) solid var(--facebook);
+  }
+  &--twitter {
+    border-top: toRem(4) solid var(--twitter);
+  }
+  &--instagram {
+    margin-top: toRem(4);
+    border-top-left-radius: toRem(2);
+    border-top-right-radius: toRem(2);
+    &::before {
+      content: "";
+      position: absolute;
+      width: calc(100% - toRem(0.2));
+      height: toRem(5);
+      border-top-left-radius: toRem(4);
+      border-top-right-radius: toRem(4);
+      background: linear-gradient(
+        255deg,
+        var(--instagram-start) 0%,
+        var(--instagram-middle) 50.91%,
+        var(--instagram-end) 100%
+      );
+      left: 50%;
+      transform: translateX(-50%);
+      top: toRem(-3);
+      z-index: -1;
+    }
+  }
+  &--youtube {
+    border-top: toRem(4) solid var(--youtube);
+  }
+  &--flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 125px;
+  }
+  &__platform {
+    height: toRem(20);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: toRem(8);
+    margin-bottom: toRem(28);
+  }
+  &__username {
+    font-size: toRem(12);
+    font-weight: 700;
+    top: 1px;
+    position: relative;
+  }
+  &__count {
+    color: var(--text2);
+    font-weight: 700;
+    line-height: 1;
+    &--big {
+      font-size: toRem(56);
+      margin-bottom: toRem(25);
+    }
+    &--small {
+      font-size: toRem(32);
+    }
+  }
+  &__label {
+    color: var(--text1);
+    &--followers {
+      font-size: toRem(12);
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: toRem(5);
+      margin-top: toRem(9);
+    }
+    &--overview {
+      font-size: toRem(14);
+      font-weight: 700;
+      text-transform: capitalize;
+      margin-top: toRem(2);
+    }
+  }
+  &__change {
+    font-size: toRem(12);
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: toRem(4);
+    &--up {
+      color: var(--limegreen);
+    }
+    &--down {
+      color: var(--brightred);
+    }
+  }
+  &__box {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+    &:first-of-type {
+      align-items: start;
+    }
+    &:last-of-type {
+      align-items: end;
+    }
+  }
+}

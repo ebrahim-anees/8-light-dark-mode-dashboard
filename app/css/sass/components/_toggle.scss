@@ -1,0 +1,77 @@
+@use "util" as *;
+
+.toggle {
+  position: relative;
+  border: none;
+  padding: 0;
+  width: 100%;
+  margin-top: toRem(46);
+  &::before {
+    content: "";
+    position: absolute;
+    height: toRem(1.5);
+    width: calc(100% + toRem(5));
+    background-color: var(--text1);
+    top: toRem(-23);
+    left: 49%;
+    transform: translateX(-50%);
+
+    z-index: 1;
+  }
+  @include breakpoint-up(medium) {
+    width: toRem(75);
+    margin-top: 0;
+    &::before {
+      display: none;
+    }
+  }
+  legend {
+    position: absolute;
+    font-size: toRem(14);
+    font-weight: 700;
+    top: 50%;
+    transform: translateY(-50%);
+    left: toRem(-5);
+    color: var(--text1);
+
+    @include breakpoint-up(medium) {
+      left: toRem(-58);
+    }
+  }
+  &__wrapper {
+    height: toRem(24);
+    width: 48px;
+    position: relative;
+    margin-left: auto;
+    cursor: pointer;
+  }
+  input[type="radio"] {
+    opacity: 0;
+    position: absolute;
+    &:focus ~ .toggle__button {
+      border: 1px solid white;
+    }
+  }
+  &__background {
+    display: block;
+    height: 100%;
+    background: var(--toggle-bg);
+    border-radius: toRem(32);
+    overflow: hidden;
+  }
+  &__button {
+    border-radius: 50%;
+    width: toRem(18);
+    height: toRem(18);
+    background-color: var(--bg);
+    position: absolute;
+    top: toRem(3);
+    transition: 0.2s ease-out;
+    &--dark {
+      left: calc(toRem(3));
+    }
+    &--light {
+      left: calc(100% - toRem(21));
+    }
+  }
+}

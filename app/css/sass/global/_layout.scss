@@ -1,0 +1,24 @@
+@use "../util/" as *;
+
+.container {
+  padding: 0 toRem(25);
+  margin: 0 auto toRem(46);
+  max-width: toRem(1110);
+
+  @include breakpoint-up(large) {
+    padding: 0;
+  }
+}
+
+.d-flex {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: toRem(30);
+
+  @include breakpoint-up(medium) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @include breakpoint-up(large) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

@@ -1,0 +1,29 @@
+@use "../util/" as *;
+.header {
+  margin-top: toRem(36);
+  display: flex;
+  flex-wrap: wrap;
+  @include breakpoint-up(medium) {
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__title {
+    width: 100%;
+    @include breakpoint-up(medium) {
+      width: fit-content;
+    }
+  }
+  &__subtitle {
+    font-size: toRem(14);
+    font-weight: 700;
+    color: var(--text1);
+  }
+  &__toggle {
+    left: 50%;
+    transform: translateX(-50%);
+    @include breakpoint-up(medium) {
+      left: auto;
+      transform: translate(0);
+    }
+  }
+}
